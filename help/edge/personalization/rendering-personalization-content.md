@@ -246,13 +246,16 @@ alloy("sendEvent", {
     // content, find the first item whose schema indicates
     // it contains HTML content.
     for (var j = 0; j < discountProposition.items.length; j++) {
-      var discountPropositionItem = discountProposition.items[i];      
+      var discountPropositionItem = discountProposition.items[i];
       if (discountPropositionItem.schema === "https://ns.adobe.com/personalization/html-content-item") {
         discountHtml = discountPropositionItem.data.content;
         
         // Render the content
         var dailySpecialElement = document.getElementById("daily-special");
-        dailySpecialElement.innerHTML = discountHtml;               
+        dailySpecialElement.innerHTML = discountHtml;
+        
+        // For this example, we assume there is only a signle place to update in the HTML.
+        break;               
       }
     }
 
